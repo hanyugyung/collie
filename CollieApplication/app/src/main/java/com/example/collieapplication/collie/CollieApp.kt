@@ -9,13 +9,18 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.collieapplication.collie.model.ledger.LedgerViewModel
+import com.example.collieapplication.collie.model.user.UserViewModel
 
 enum class CollieScreen {
     Login, Signup, Home, Adding, Settings
 }
 
 @Composable
-fun CollieApp(userInputViewModel: UserViewModel = viewModel()) {
+fun CollieApp(
+    userInputViewModel: UserViewModel = viewModel()
+    , ledgerViewModel: LedgerViewModel = viewModel()
+) {
 
 
     val navController = rememberNavController()
@@ -23,7 +28,7 @@ fun CollieApp(userInputViewModel: UserViewModel = viewModel()) {
     // TODO navController 는 프리뷰에서는 못 쓰는지?
 
 
-    // 스크린 하당 뷰모델을 가지도록? vs 액티비티 하나당 뷰모델? -- 세기의 논란
+    // 스크린 하나당 뷰모델을 가지도록? vs 액티비티 하나당 뷰모델? -- 세기의 논란
 
     NavHost(
         navController = navController,
@@ -34,6 +39,9 @@ fun CollieApp(userInputViewModel: UserViewModel = viewModel()) {
                 Modifier.fillMaxSize()
                 , userInputViewModel.loginValue
                 , onValueChange = { userInputViewModel.inputLoginValue(it) }
+                , onLoginButtonClicked = {
+                    navController.navigate(CollieScreen.Home.name)
+                }
                 , onGoToSignUpButtonClicked = {
                     userInputViewModel.clearLoginValue()
                     navController.navigate(CollieScreen.Signup.name)
@@ -54,7 +62,10 @@ fun CollieApp(userInputViewModel: UserViewModel = viewModel()) {
             )
         }
         composable(route = CollieScreen.Home.name) {
-
+            HomeScreen(
+                Modifier.fillMaxSize()
+                , ledgerViewModel.ledgerList
+            )
         }
         composable(route = CollieScreen.Adding.name) {
 

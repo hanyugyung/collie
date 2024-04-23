@@ -23,6 +23,7 @@ fun LoginScreen(
     modifier: Modifier = Modifier
     , str: String
     , onValueChange: (String) -> Unit
+    , onLoginButtonClicked: () -> Unit
     , onGoToSignUpButtonClicked: (Int) -> Unit
 ) {
 
@@ -37,7 +38,7 @@ fun LoginScreen(
                 , onValueChange = onValueChange
                 , modifier = Modifier.padding(vertical = 24.dp)
             )
-            Button(onClick = { /*TODO*/ }) {
+            Button(onClick = onLoginButtonClicked ) {
                 Text(text = "login")
             }
             ClickableText(

@@ -40,7 +40,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.example.collieapplication.collie.CollieApp
-import com.example.collieapplication.collie.UserViewModel
+import com.example.collieapplication.collie.model.user.UserViewModel
 import com.example.collieapplication.ui.theme.CollieApplicationTheme
 import kotlinx.coroutines.launch
 
@@ -60,7 +60,7 @@ class MainActivity : ComponentActivity() {
             }
         }
         // 코루틴은 멀티스레드아님 (병렬 x) 비동기임
-        // 경량화된 스레드 - 스레드 하나가지고 쪼개써 여러 일 처리
+        // 경량화된 스레드란? - 스레드 하나가지고 쪼개써 여러 일 처리
         // scope 를 이용하면 액티비티가 뽀사지면 안전하게 코루틴을 죽일 수있다
         lifecycleScope.launch {
             viewModel.state.collect {

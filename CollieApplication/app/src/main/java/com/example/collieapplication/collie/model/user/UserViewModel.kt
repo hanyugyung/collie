@@ -1,4 +1,4 @@
-package com.example.collieapplication.collie
+package com.example.collieapplication.collie.model.user
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
