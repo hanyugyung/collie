@@ -30,7 +30,7 @@ class UserController constructor(
         return CollieResponse.success(data = Unit)
     }
 
-    @GetMapping("login")
+    @PostMapping("login")
     fun login(
         @RequestBody request: LoginRequest
     ): CollieResponse<LoginResult> {
@@ -42,7 +42,7 @@ class UserController constructor(
         return CollieResponse.success(data = tokens.toLoginResult())
     }
 
-    @GetMapping("login_with_token")
+    @PostMapping("login_with_token")
     fun loginWithToken(
         @RequestBody request: LoginWithTokenRequest
     ): CollieResponse<LoginResult> {
