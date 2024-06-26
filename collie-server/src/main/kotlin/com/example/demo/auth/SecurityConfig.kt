@@ -41,7 +41,8 @@ class SecurityConfig {
                 AntPathRequestMatcher("/h2-console"),
                 AntPathRequestMatcher("/favicon.ico"),
                 AntPathRequestMatcher("/api/users/login"),
-                AntPathRequestMatcher("/api/users/sign-up"),
+                AntPathRequestMatcher("/api/users/login_with_token"),
+                AntPathRequestMatcher("/api/users/sign_up"),
                 AntPathRequestMatcher("/upload-file/**"),
                 AntPathRequestMatcher("/**/upload-file/**")
             )
