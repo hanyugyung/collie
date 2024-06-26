@@ -1,0 +1,31 @@
+#spring:
+#  h2:
+#    console:
+#      settings:
+#        web-allow-others: true
+#      enabled: true
+#      path: /h2-console
+#  datasource:
+#    driver-class-name: org.h2.Driver
+#    url: jdbc:h2:~/board-db
+#    username: sa
+#    password:
+#  #  jackson:
+#  #    default-property-inclusion: non_null
+#  jpa:
+#    database: h2
+#    show-sql: true
+#    open-in-view: false
+#    properties:
+#      jakarta:
+#        persistence:
+#          sharedCache:
+#            mode: ALL
+#      hibernate:
+#        format_sql: true
+#        globally_quoted_identifiers: true
+#        query:
+#          in_clause_parameter_padding: true
+#    hibernate:
+#      use-new-id-generator-mappings: false
+#      ddl-auto: update
